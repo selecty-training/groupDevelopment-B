@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import dao.dao;
 import entity.Employee;
 import service.BaseService.BaseService;
 import util.DbUtil;
@@ -31,7 +32,7 @@ public class SearchService extends BaseService {
 	 */
 	public Map<String, Object> doLogin(String mail, String pass) throws Exception {
 		Map<String, Object> loginData = new HashMap<>();
-		EmployeeDao dao = new EmployeeDao(this.con);
+		dao dao = new dao(this.con);
 		try {
 			loginData.put("EMP", dao.selectLoginInfo(mail, pass));
 			
@@ -50,7 +51,7 @@ public class SearchService extends BaseService {
 	 * @return
 	 */
 	public List<EmployeeInfo> searchEmployeeInfo(Employee emp) throws Exception {
-		EmployeeDao dao = new EmployeeDao(this.con);
+		dao dao = new dao(this.con);
 		List<EmployeeInfo> empInfoList = null;
 		try {
 			empInfoList = dao.findByParam(emp);
@@ -69,7 +70,7 @@ public class SearchService extends BaseService {
 	 * @throws Exception
 	 */
 	public Employee searchEmployeeByPkey(Integer empId) throws Exception {
-		EmployeeDao dao = new EmployeeDao(this.con);
+		dao dao = new dao(this.con);
 		Employee employee = null;
 		try {
 			employee = dao.findByPramaryKey(empId);
@@ -86,24 +87,24 @@ public class SearchService extends BaseService {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean checkDuplicationMail(Integer id, String mail) throws Exception {
-		// メールアドレスで検索を行う
-		EmployeeDao dao = new EmployeeDao(this.con);
-		try {
-			Employee emp = dao.findByMail(mail);
-
-			if (emp != null) {//一致するデータがあったとき
-				if (id == null || !id.equals(emp.getIdEmployee())) {//入力されたIDがデータと一致しているか
-					return true;
-				}
-			}
-		} finally {
-			DbUtil.closeConnection(this.con);
-		}
-		return false;
+//	public boolean checkDuplicationMail(Integer id, String mail) throws Exception {
+//		// メールアドレスで検索を行う
+//		dao dao = new dao(this.con);
+//		try {
+//			Employee emp = dao.findByMail(mail);
+//
+//			if (emp != null) {//一致するデータがあったとき
+//				if (id == null || !id.equals(emp.getIdEmployee())) {//入力されたIDがデータと一致しているか
+//					return true;
+//				}
+//			}
+//		} finally {
+//			DbUtil.closeConnection(this.con);
+//		}
+//		return false;
 	}
 
-}
 
 
-}
+
+
