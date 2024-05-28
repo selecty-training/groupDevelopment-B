@@ -2,7 +2,7 @@ package entity;
 
 import entity.BaseEntity.BaseEntity;
 
-public class Employee extends BaseEntity{
+public class Employee implements BaseEntity{
 	public static final String TITLE_ID_EMPLOYEE = "社員ID";
 	public static final String TITLE_NM_EMPLOYEE = "社員名";
 	public static final String TITLE_PASSWORD = "パスワード";
