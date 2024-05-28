@@ -46,13 +46,16 @@ public class EmployeeDao extends BaseDao<Employee> {
 
 	@Override
 	protected String getTableName() {
-		return "employee";
+		return "employeeList";
 	}
 
 	@Override
 	protected Employee rowMapping(ResultSet rs) throws SQLException {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		Employee emp = new Employee();
+		emp.setIdEmployee(rs.getInt("id"));
+		emp.setPassword(rs.getString("password"));
+		emp.setNmEmployee(rs.getString("name"));
+		return emp;
 	}
 
 	@Override
