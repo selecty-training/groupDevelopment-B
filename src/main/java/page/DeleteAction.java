@@ -3,6 +3,7 @@ package page;
 import javax.servlet.annotation.WebServlet;
 
 import page.base.BaseServlet;
+import service.UpdateService;
 
 /**
  * 社員情報削除を行う画面に対応したページクラスです
