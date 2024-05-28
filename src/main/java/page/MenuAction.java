@@ -2,7 +2,8 @@ package page;
 
 import javax.servlet.annotation.WebServlet;
 
-public class MenuAction {
+import page.base.BaseServlet;
+
 	/**
 	 * メニュー（トップ）画面から何かしらの処理を行うためのクラスです。
 	 * 今回の対象システムでは不要ですが、SPAなどを作成する場合はまとめましょう
@@ -20,6 +21,5 @@ public class MenuAction {
 		protected String doAction() throws Exception {
 			return this.getPageName();
 		}
-	}
 
 }
