@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dao.dao;
+import dao.EmployeeDao;
+import dao.TodoDao;
 import entity.Employee;
 import service.BaseService.BaseService;
 import util.DbUtil;
@@ -30,11 +31,11 @@ public class SearchService extends BaseService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Map<String, Object> doLogin(String mail, String pass) throws Exception {
+	public Map<String, Object> doLogin(int id, String pass) throws Exception {
 		Map<String, Object> loginData = new HashMap<>();
-		dao dao = new dao(this.con);
+		EmployeeDao dao = new EmployeeDao(this.con);
 		try {
-			loginData.put("EMP", dao.selectLoginInfo(mail, pass));
+			loginData.put("EMP", dao.selectLoginInfo(id, pass));
 			
 		} finally {
 			DbUtil.closeConnection(this.con);
@@ -51,7 +52,7 @@ public class SearchService extends BaseService {
 	 * @return
 	 */
 	public List<EmployeeInfo> searchEmployeeInfo(Employee emp) throws Exception {
-		dao dao = new dao(this.con);
+		TodoDao dao = new TodoDao(this.con);
 		List<EmployeeInfo> empInfoList = null;
 		try {
 			empInfoList = dao.findByParam(emp);
@@ -70,7 +71,7 @@ public class SearchService extends BaseService {
 	 * @throws Exception
 	 */
 	public Employee searchEmployeeByPkey(Integer empId) throws Exception {
-		dao dao = new dao(this.con);
+		TodoDao dao = new TodoDao(this.con);
 		Employee employee = null;
 		try {
 			employee = dao.findByPramaryKey(empId);
