@@ -19,13 +19,13 @@
         </c:if>
 		<table>
 			<tr>
-				<th class="header">ID</th>
+				<th class="header">TODOリストID</th>
 				<td>
 					<input type="text" name="empId" placeholder="ID" maxlength="50"value="${empId }" />
 				</td>
 			</tr>
 			<tr>
-				<th class="header">社員名</th>
+				<th class="header">社員ID</th>
 				<td>
 					<input type="text" name="empNm" placeholder="社員名" maxlength="50"value="${empNm }" />
 				</td>
