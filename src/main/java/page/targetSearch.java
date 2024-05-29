@@ -48,7 +48,7 @@ public class targetSearch extends BaseServlet {
 		super.request.setAttribute("todo", todoList.getTodo());
 		super.request.setAttribute("employeeList_id", todoList.getEmployeeList_id());
 
-		return "updateInput";
+		return "update".equals(pageParam[1]) ? "updateInput" : "deleteConfirm";
 	}
 }
 
