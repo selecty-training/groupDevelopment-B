@@ -2,7 +2,7 @@ package page;
 
 import javax.servlet.annotation.WebServlet;
 
-import entity.Employee;
+import entity.TodoListInfo;
 import page.base.BaseServlet;
 import service.UpdateService;
 import service.UpdateService.UPDATE_MODE;
@@ -30,23 +30,18 @@ public class UpdateAction extends BaseServlet {
 	protected String doAction() throws Exception {
 		// データを取得
 		String[] pageParam = super.getInputParameter(
-				 "empId"				// 0
-				,"empNm"				// 1
-				,"empKn"				// 2
-				,"mail"					// 3
-				,"pass"					// 4
-				,"passConf"				// 5
-				,"passOld"				// 6
-				,"depId"				// 7
-		);
-		String pass = pageParam[6];
+				 "idtodo"				// 0
+				,"todo"				// 1
+				,"employeeList_id"				// 2
+				);
+//		String pass = pageParam[0];
 
-		if (!"".equals(pageParam[4]) || !"".equals(pageParam[5])) {
-			if (!pageParam[4].equals(pageParam[5])) {
-				throw new Exception("パスワードが一致していません");
-			}
-			pass = pageParam[4];
-		}
+//		if (!"".equals(pageParam[4]) || !"".equals(pageParam[5])) {
+//			if (!pageParam[4].equals(pageParam[5])) {
+//				throw new Exception("パスワードが一致していません");
+//			}
+//			pass = pageParam[4];
+//		}
 //
 //		SearchService sService = new SearchService();
 //		if (sService.checkDuplicationMail(Integer.parseInt(pageParam[0]), pageParam[3])) {
@@ -54,12 +49,12 @@ public class UpdateAction extends BaseServlet {
 //		}
 
 		UpdateService uService= new UpdateService();
-		Employee emp = new Employee();
-		emp.setIdEmployee(Integer.parseInt(pageParam[0]));
-		emp.setNmEmployee(pageParam[1]);
-		emp.setPassword(pass);
+		TodoListInfo todo = new TodoListInfo();
+		todo.setIdToDo(Integer.parseInt(pageParam[0]));
+		todo.setTodo(pageParam[1]);
+		todo.setWorkinglist_id(Integer.parseInt(pageParam[2]));
 
-		uService.registEmployee(emp, UPDATE_MODE.UPDATE);
-		return "updateResult";
+		uService.registTodoList(todo, UPDATE_MODE.UPDATE);
+		return "loginInf";
 	}
 }

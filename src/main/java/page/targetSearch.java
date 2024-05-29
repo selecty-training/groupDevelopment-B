@@ -2,7 +2,7 @@ package page;
 
 import javax.servlet.annotation.WebServlet;
 
-import entity.Employee;
+import entity.TodoListInfo;
 import page.base.BaseServlet;
 import service.SearchService;
 
@@ -11,7 +11,7 @@ import service.SearchService;
 //import com.selecty.example.service.SearchService;
 
 /**
- * 社員IDから情報を取得して、次の画面に値を渡すためのクラスです。
+ * TodoIDから情報を取得して、次の画面に値を渡すためのクラスです。
  * 今回の対象であれば、「削除→削除対象確認」や「更新→更新内容入力」などです。
  *
  */
@@ -25,28 +25,28 @@ public class targetSearch extends BaseServlet {
 	@Override
 	protected String doAction() throws Exception {
 		String[] pageParam = super.getInputParameter(
-				 "empId"		// 0
+				 "idTodo"		// 0
 				,"page"			// 1
 		);
 
-		int empId = -1;
+		int idTodo = -1;
 		try {
-			empId = Integer.parseInt(pageParam[0]);
+			idTodo = Integer.parseInt(pageParam[0]);
 		} catch (NumberFormatException e) {
-			throw new Exception("入力された社員IDで社員情報が見つかりませんでした");
+			throw new Exception("入力されたIDで見つかりませんでした");
 		}
 
 		SearchService service = new SearchService();
-		Employee employee = service.searchEmployeeByPkey(empId);
+		TodoListInfo todoList = service.searchTodoListByPkey(idTodo);
 
-		if (employee == null) {
-			throw new Exception("入力された社員IDで社員情報が見つかりませんでした");
+		if (todoList == null) {
+			throw new Exception("入力されたIDで見つかりませんでした");
 		}
 
 
-		super.request.setAttribute("empId", employee.getIdEmployee());
-		super.request.setAttribute("empNm", employee.getNmEmployee());
-		super.request.setAttribute("passOld", employee.getPassword());
+		super.request.setAttribute("idTodo", todoList.getIdToDo());
+		super.request.setAttribute("todo", todoList.getTodo());
+		super.request.setAttribute("employeeList_id", todoList.getWorkinglist_id());
 
 		return "update".equals(pageParam[1]) ? "updateInput" : "deleteConfirm";
 	}

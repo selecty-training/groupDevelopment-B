@@ -7,6 +7,7 @@ import java.util.Map;
 import dao.EmployeeDao;
 import dao.TodoDao;
 import entity.Employee;
+import entity.TodoListInfo;
 import service.BaseService.BaseService;
 import util.DbUtil;
 
@@ -65,20 +66,20 @@ public class SearchService extends BaseService {
 	}
 
 	/**
-	 * 社員情報の主キー検索を行う
-	 * @param empId
+	 * ToDoリストの主キー検索を行う
+	 * @param IdTodo
 	 * @return
 	 * @throws Exception
 	 */
-	public Employee searchEmployeeByPkey(Integer empId) throws Exception {
+	public TodoListInfo searchTodoListByPkey(Integer idTodo) throws Exception {
 		TodoDao dao = new TodoDao(this.con);
-		Employee employee = null;
+		TodoListInfo todoList = null;
 		try {
-			employee = dao.findByPramaryKey(empId);
+			todoList = dao.findByPramaryKey(idTodo);
 		} finally {
 			DbUtil.closeConnection(this.con);
 		}
-		return employee;
+		return todoList;
 	}
 
 	/**

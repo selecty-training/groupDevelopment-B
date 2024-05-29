@@ -13,7 +13,7 @@ import util.Util;
 
 public class TodoDao  extends BaseDao<TodoListInfo> {
 
-	protected TodoDao(Connection con) {
+	public TodoDao(Connection con) {
 		super(con);
 	}
 	
@@ -119,8 +119,34 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 		return empList;
 	}
 	
-	
-	
+	/**
+	 * todoリストの登録を行う
+	 * @param todo
+	 * @return
+	 */
+	public int insertTodo(TodoListInfo todo) throws SQLException {
+		StringBuilder sql = new StringBuilder();
+
+		sql.append("INSERT INTO " + this.getTableName());
+		sql.append("(");
+		sql.append("     todo");
+		sql.append("    ,employeeList_id");
+		sql.append(") VALUES ( ?, ?)");
+
+		// Statementの生成および条件の設定
+		this.stmt = this.con.prepareStatement(sql.toString());
+		setParameter(
+				 todo.getTodo()
+				 ,todo.getWorkinglist_id()
+		);
+
+		int count = this.stmt.executeUpdate();
+
+		this.closeStatement();
+		return count;
+	}
+
+
 	
 	
 	

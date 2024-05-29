@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.TodoDao;
-import entity.Employee;
+import entity.TodoListInfo;
 import service.BaseService.BaseService;
 //
 //import com.selecty.example.dao.EmployeeDao;
@@ -26,27 +26,27 @@ public class UpdateService extends BaseService {
 	}
 
 	/**
-	 * 社員の登録・更新を行う
+	 * todoリストの登録・更新を行う
 	 * @param emp
 	 * @return
 	 * @throws Exception
 	 */
-	public int registEmployee(Employee emp, UPDATE_MODE mode) throws Exception {
+	public int registTodoList(TodoListInfo todo, UPDATE_MODE mode) throws Exception {
 		TodoDao dao = new TodoDao(this.con);
 		int count = -1;
 
 		try {
 			if (mode == UPDATE_MODE.INSERT) {
-				count = dao.insertEmployee(emp);
+				count = dao.insertTodo(todo);
 			} else if (mode == UPDATE_MODE.UPDATE){
 				// DAO -> List<Object>（DAO#updateを呼び出すため）
 				List<Object> paramList = new ArrayList<>();
-				paramList.add(emp.getIdEmployee());
-				paramList.add(emp.getNmEmployee());
-				paramList.add(emp.getPassword());
+				paramList.add(todo.getIdToDo());
+				paramList.add(todo.getTodo());
+				paramList.add(todo.getWorkinglist_id());
 				
 				
-				count = dao.updateByPrimaryKey(paramList, emp.getIdEmployee());
+				count = dao.updateByPrimaryKey(paramList, todo.getIdToDo());
 			}
 			this.con.commit();
 		} catch (Exception e) {
