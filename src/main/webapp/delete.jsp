@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>社員情報削除</title>
+<title>TODO内容削除</title>
 </head>
 
 <body>
-	<h1>社員情報削除　　　<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
+	<h1>TODO内容削除　　　<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
 	<form action="targetSearch" method="post">
 	    <c:if test="${errMsg != null}">
             <div class="msgBox error">
@@ -21,8 +21,8 @@
             <tr>
                 <th class="header">TODOリストID</th>
                 <td style="width: 250px;">
-                    <input type="text" placeholder="ID" name="empId" required="required"
-                        style="width: 100%;" value="${empId }" />
+                    <input type="text" placeholder="TODOのID" name="idTodo" required="required"
+                        style="width: 100%;" value="${idTodo }" />
                 </td>
             </tr>
             <tr>
