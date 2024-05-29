@@ -40,8 +40,9 @@
                 </tr>
                 <tr class="button">
                     <td colspan="2">
-                        <input class="login_button" type="submit" value="ログイン"  /><br>
-                        <input class="reset_button" type="reset" value="リセット" />
+                       
+                        <input class="reset_button" type="reset" value="リセット" /><br>
+                         <input class="login_button" type="submit" value="ログイン"  />
                     </td>
                 </tr>
             </table>
