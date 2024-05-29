@@ -10,7 +10,7 @@ public class TodoListInfo implements BaseEntity{
 	/** ToDo内容 */
 	private String todo;
 	/** 社員ID */
-	private Integer workinglist_id;
+	private Integer employeeList_id;
 	
 	/**
 	 * リストID（No.）を取得します
@@ -44,14 +44,14 @@ public class TodoListInfo implements BaseEntity{
 	 * 社員IDを取得します
 	 * @return 社員ID
 	 */
-	public Integer getWorkinglist_id() {
-		return workinglist_id;
+	public Integer getEmployeeList_id() {
+		return employeeList_id;
 	}
 	/**
 	 * 社員IDを設定します
 	 * @param 社員ID
 	 */
-	public void setWorkinglist_id(Integer workinglist_id) {
-		this.workinglist_id = workinglist_id;
+	public void setEmployeeList_id(Integer employeeList_id) {
+		this.employeeList_id = employeeList_id;
 	}
 }

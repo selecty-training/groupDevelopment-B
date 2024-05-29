@@ -21,7 +21,7 @@
             <tr>
                 <th class="header">ID</th>
                 <td style="width: 250px;">
-                    <input type="text" placeholder="ID" name="empId" required="required"
+                    <input type="text" placeholder="ID" name="idTodo" required="required"
                         style="width: 100%;" value="${param.empId }"/>
                 </td>
             </tr>

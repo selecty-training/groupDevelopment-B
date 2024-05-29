@@ -160,15 +160,12 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 	}
 
 	@Override
-	protected Employee rowMapping(ResultSet rs) throws SQLException {
-		Employee employee = new Employee();
-		employee.setIdEmployee(rs.getInt("id_employee"));
-		employee.setNmEmployee(rs.getString("nm_employee"));
-		employee.setKnEmployee(rs.getString("kn_employee"));
-		employee.setMailAddress(rs.getString("mail_address"));
-		employee.setPassword(rs.getString("password"));
-		employee.setIdDepartment(rs.getInt("id_department"));
-		return employee;
+	protected TodoListInfo rowMapping(ResultSet rs) throws SQLException {
+		TodoListInfo todo = new TodoListInfo();
+		todo.setIdToDo(rs.getInt("id"));
+		todo.setTodo(rs.getString("todo"));
+		todo.setEmployeeList_id(rs.getInt("employeeList_id"));
+		return todo;
 	}
 
 	@Override
@@ -179,8 +176,9 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 
 	@Override
 	protected String[] getPrimaryKey() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new String[]{
+				"id"
+		};
 	}
 
 }
