@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(45deg, #8e44ad, #3498db);
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    text-align: center;
+}
+
+.login_container{
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 50px 50px 20px 50px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.login{
+    font-size: 30px;
+}
+
+table{
+    margin-bottom: 20px;
+
+}
+
+.header{
+   text-align: left;
+}
+
+.id_content input{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.header{
+    text-align: left;
+}
+
+.pass_content input{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.button{
+    text-align: center;
+
+}
+
+.login_button{
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    color: #8e44ad;
+    font-size: small;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.reset_button{
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    color: #8e44ad;
+    font-size: small;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
