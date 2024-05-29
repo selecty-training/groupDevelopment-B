@@ -55,6 +55,6 @@ public class UpdateAction extends BaseServlet {
 		todo.setEmployeeList_id(Integer.parseInt(pageParam[2]));
 
 		uService.registTodoList(todo, UPDATE_MODE.UPDATE);
-		return "loginInf";
+		return "updateResult";
 	}
 }

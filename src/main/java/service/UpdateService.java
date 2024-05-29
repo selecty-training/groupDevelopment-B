@@ -43,7 +43,7 @@ public class UpdateService extends BaseService {
 				List<Object> paramList = new ArrayList<>();
 				paramList.add(todo.getIdToDo());
 				paramList.add(todo.getTodo());
-				paramList.add(todo.getWorkinglist_id());
+				paramList.add(todo.getEmployeeList_id());
 				
 				
 				count = dao.updateByPrimaryKey(paramList, todo.getIdToDo());

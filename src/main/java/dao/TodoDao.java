@@ -137,7 +137,7 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 		this.stmt = this.con.prepareStatement(sql.toString());
 		setParameter(
 				 todo.getTodo()
-				 ,todo.getWorkinglist_id()
+				 ,todo.getEmployeeList_id()
 		);
 
 		int count = this.stmt.executeUpdate();
@@ -170,8 +170,11 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 
 	@Override
 	protected String[] getColumnsList() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return new String[]{
+				 "id"
+				,"todo"
+				,"employeeList_id"
+		};
 	}
 
 	@Override
