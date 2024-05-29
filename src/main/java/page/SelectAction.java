@@ -4,9 +4,7 @@ import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.selecty.example.entity.EmployeeInfo;
-
-import entity.Employee;
+import entity.TodoListInfo;
 import page.base.BaseServlet;
 import service.SearchService;
 
@@ -26,9 +24,7 @@ public class SelectAction extends BaseServlet {
 		String[] pageParam = super.getInputParameter(
 				"idTodo" // 0
 				, "todo" // 1
-				, "empKn" // 2
-				, "mail" // 3
-				, "depId" // 4
+				, "employeeList_id" // 2
 		);
 		
 		Integer id = null;
@@ -46,18 +42,15 @@ public class SelectAction extends BaseServlet {
 		}
 
 		// 画面入力値 -> DTOへ
-		Employee employee = new Employee();
-		employee.setIdEmployee(id);
-		employee.setNmEmployee(pageParam[1]);
-		employee.setKnEmployee(pageParam[2]);
-		employee.setMailAddress(pageParam[3]);
-		if (!"".equals(pageParam[4])) {
-			employee.setIdDepartment(Integer.parseInt(pageParam[4]));
-		}
+		TodoListInfo todo = new TodoListInfo();
+		todo.setIdToDo(id);
+		todo.setTodo(pageParam[1]);
+		todo.setEmployeeList_id(Integer.parseInt(pageParam[2]));
+		
 
 		// 検索を行う
 		SearchService service = new SearchService();
-		List<EmployeeInfo> empInfoList = service.searchEmployeeInfo(employee);
+		List<TodoListInfo> empInfoList = service.searchTodoListInfo(todo);
 
 		// 検索結果の判定
 		if (empInfoList.size() == 0) {

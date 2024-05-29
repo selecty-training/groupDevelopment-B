@@ -6,7 +6,6 @@ import java.util.Map;
 
 import dao.EmployeeDao;
 import dao.TodoDao;
-import entity.Employee;
 import entity.TodoListInfo;
 import service.BaseService.BaseService;
 import util.DbUtil;
@@ -52,11 +51,11 @@ public class SearchService extends BaseService {
 	 * @param form
 	 * @return
 	 */
-	public List<EmployeeInfo> searchEmployeeInfo(Employee emp) throws Exception {
+	public List<TodoListInfo> searchTodoListInfo(TodoListInfo todo) throws Exception {
 		TodoDao dao = new TodoDao(this.con);
-		List<EmployeeInfo> empInfoList = null;
+		List<TodoListInfo> todoInfoList = null;
 		try {
-			empInfoList = dao.findByParam(emp);
+			todoInfoList = dao.findByParam(todo);
 			if (empInfoList.size() == 0 || empInfoList == null) {
 			}
 		} finally {

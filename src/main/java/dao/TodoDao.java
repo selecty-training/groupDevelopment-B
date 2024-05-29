@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.base.BaseDao;
-import entity.Employee;
 import entity.TodoListInfo;
 import util.Util;
 
@@ -52,17 +51,17 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 	 * @param emp 検索条件
 	 * @return 検索結果
 	 */
-	public List<TodoListInfo> findByParam(Employee emp) throws SQLException {
+	public List<TodoListInfo> findByParam(TodoListInfo todo) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 
 		// SQLの生成
 		sql.append(" SELECT");
-		sql.append("      w.id");
-		sql.append("     ,w.password");
-		sql.append("     ,w.name");
+		sql.append("      e.id");
+		sql.append("     ,e.password");
+		sql.append("     ,e.name");
 		sql.append("     ,t.id");
 		sql.append("     ,t.todo");
-		sql.append("     ,t.workinglist_id");
+		sql.append("     ,t.employeeList_id");
 		sql.append(" FROM");
 		sql.append("     workingList w INNER JOIN todoList t");
 		//sql.append("         ON e.id_department = d.id_department");
