@@ -3,7 +3,7 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.dao;
+import dao.TodoDao;
 import entity.Employee;
 import service.BaseService.BaseService;
 //
@@ -32,7 +32,7 @@ public class UpdateService extends BaseService {
 	 * @throws Exception
 	 */
 	public int registEmployee(Employee emp, UPDATE_MODE mode) throws Exception {
-		dao dao = new dao(this.con);
+		TodoDao dao = new TodoDao(this.con);
 		int count = -1;
 
 		try {
@@ -66,7 +66,7 @@ public class UpdateService extends BaseService {
 	 * @throws Exception
 	 */
 	public int deleteEmployee(Integer empId) throws Exception {
-		dao dao = new dao(this.con);
+		TodoDao dao = new TodoDao(this.con);
 		int deleteCount = -1;
 
 		try {

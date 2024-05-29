@@ -11,13 +11,6 @@ public class TodoListInfo implements BaseEntity{
 	private String todo;
 	/** 社員ID */
 	private Integer workinglist_id;
-
-//	public TodoListInfo() {}
-//	public TodoListInfo(Employee emp) {
-//		this.idToDo = emp;
-//	}
-	
-	
 	
 	/**
 	 * リストID（No.）を取得します
