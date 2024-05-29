@@ -13,28 +13,21 @@
         </c:if>
 		<table>
 			<tr>
+				<th class="header">TODOのID</th>
+				<td>
+					<input type="text" name="idTodo" readonly="readonly" class="readOnly" value="${ idTodo }" required="required"/>
+				</td>
+			</tr>
+			<tr>
 				<th class="header">社員ID</th>
 				<td>
-					<input type="text" name="empId" readonly="readonly" class="readOnly" value="${ empId }" required="required"/>
+					<input type="text" name="employeeList_id" placeholder="TODOのID" maxlength="50" value="${ param.employeeList_id }" required="required"/>
 				</td>
 			</tr>
 			<tr>
-				<th class="header">社員名</th>
+				<th class="header">TODOの内容</th>
 				<td>
-					<input type="text" name="empNm" placeholder="社員名" maxlength="50" value="${ empNm }" required="required"/>
-				</td>
-			</tr>
-			
-				<th class="header">パスワード</th>
-				<td>
-					<input type="password" name="pass" maxlength="10" placeholder="※更新する場合は入力"/>
-					<input type="hidden" name="passOld"   value="${ passOld }" />
-				</td>
-			</tr>
-			<tr>
-				<th class="header">パスワード確認</th>
-				<td>
-					<input type="password" name="passConf" maxlength="10" placeholder="※更新する場合は再入力"/>
+					<input type="text" name="todo" placeholder="TODOの内容" maxlength="50" value="${ param.todo }" required="required"/>
 				</td>
 			</tr>
 			

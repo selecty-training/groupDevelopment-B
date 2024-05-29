@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>社員情報更新</title>
+<title>TODO情報更新</title>
 </head>
 
 <body>
-	<h1>社員情報更新　　　<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
+	<h1>TODO情報更新　　　<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
 	<form action="targetSearch" method="post">
 	    <c:if test="${errMsg != null}">
             <div class="msgBox error">
@@ -19,10 +19,10 @@
         </c:if>
         <table>
             <tr>
-                <th class="header">ID</th>
+                <th class="header">TODOのID</th>
                 <td style="width: 250px;">
                     <input type="text" placeholder="ID" name="idTodo" required="required"
-                        style="width: 100%;" value="${param.empId }"/>
+                        style="width: 100%;" value="${param.idTodo }"/>
                 </td>
             </tr>
             <tr>

@@ -30,7 +30,7 @@ public class UpdateAction extends BaseServlet {
 	protected String doAction() throws Exception {
 		// データを取得
 		String[] pageParam = super.getInputParameter(
-				 "idtodo"				// 0
+				 "idTodo"				// 0
 				,"todo"				// 1
 				,"employeeList_id"				// 2
 				);
