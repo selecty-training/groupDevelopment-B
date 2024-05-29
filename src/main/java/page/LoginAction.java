@@ -31,7 +31,14 @@ public class LoginAction extends BaseServlet {
 		// ログイン処理
 		SearchService service = new SearchService();
 		String i = param[0];
-		int id = Integer.parseInt(i);
+		Integer id = null;
+		if (i.trim().length() > 0) {
+			try {
+				id = Integer.parseInt(i);
+			} catch (NumberFormatException e) {
+				throw new Exception("入力された条件で情報が見つかりませんでした");
+			}
+		}
 		Map<String, Object> loginData = service.doLogin(id, param[1]);
 
 		// 結果の取得（検索結果0件）

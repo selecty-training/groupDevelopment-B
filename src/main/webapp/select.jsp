@@ -19,15 +19,21 @@
         </c:if>
 		<table>
 			<tr>
-				<th class="header">TODOリストID</th>
+				<th class="header">社員ID</th>
 				<td>
-					<input type="text" name="empId" placeholder="ID" maxlength="50"value="${empId }" />
+					<input type="text" name="setEmployeeList_id" placeholder="社員ID" maxlength="50"value="${setEmployeeList_id }" />
 				</td>
 			</tr>
 			<tr>
-				<th class="header">社員ID</th>
+				<th class="header">TODOリストID</th>
 				<td>
-					<input type="text" name="empNm" placeholder="社員名" maxlength="50"value="${empNm }" />
+					<input type="text" name="idTodo" placeholder="TODOのID" maxlength="50"value="${idTodo }" />
+				</td>
+			</tr>
+			<tr>
+				<th class="header">TODOの内容</th>
+				<td>
+					<input type="text" name="todo" placeholder="TODOの内容" maxlength="50"value="${todo }" />
 				</td>
 			</tr>
 			<tr>
