@@ -2,7 +2,7 @@ package page;
 
 import javax.servlet.annotation.WebServlet;
 
-import entity.TodoListInfo;
+import entity.EmployeeInfo;
 import page.base.BaseServlet;
 import service.SearchService;
 
@@ -37,16 +37,18 @@ public class targetSearch extends BaseServlet {
 		}
 
 		SearchService service = new SearchService();
-		TodoListInfo todoList = service.searchTodoListByPkey(idTodo);
+		EmployeeInfo todoList = service.searchTodoListByPkey(idTodo);
 
 		if (todoList == null) {
 			throw new Exception("入力されたIDで見つかりませんでした");
 		}
 
 
-		super.request.setAttribute("idTodo", todoList.getIdToDo());
-		super.request.setAttribute("todo", todoList.getTodo());
-		super.request.setAttribute("employeeList_id", todoList.getEmployeeList_id());
+		super.request.setAttribute("idTodo", todoList.getTodo().getIdToDo());
+		super.request.setAttribute("todo", todoList.getTodo().getTodo());
+		super.request.setAttribute("employeeList_id", todoList.getTodo().getEmployeeList_id());
+		super.request.setAttribute("empNm", todoList.getEmployee());
+
 
 		return "update".equals(pageParam[1]) ? "updateInput" : "deleteConfirm";
 	}

@@ -6,6 +6,8 @@ import java.sql.SQLException;
 
 import dao.base.BaseDao;
 import entity.Employee;
+import entity.EmployeeInfo;
+import entity.TodoListInfo;
 
 public class EmployeeDao extends BaseDao<Employee> {
 
@@ -43,6 +45,49 @@ public class EmployeeDao extends BaseDao<Employee> {
 		this.closeStatement();
 		return entity;
 	}
+	
+	public EmployeeInfo findEmployeeByPramaryKey(int id) throws SQLException {
+		EmployeeInfo employeeInfo = null;
+		Employee employee = null;
+		StringBuilder sql = new StringBuilder();
+		String[] pkList = this.getPrimaryKey();
+
+
+		// SQLを生成
+		sql.append(" SELECT");
+		sql.append("      e.id");
+		
+		sql.append("     ,e.name");
+		sql.append("     ,t.id");
+		sql.append("     ,t.todo");
+		sql.append("     ,t.employeeList_id");
+		sql.append(" FROM");
+		sql.append("     employeeList e LEFT JOIN todoList t");
+		sql.append("         ON e.id = t.employeeList_id");
+		
+		sql.append(" WHERE t.id = ?");
+
+		// Statementの生成および条件の設定
+		this.stmt = this.con.prepareStatement(sql.toString());
+		setParameter(id);
+
+		ResultSet rs = stmt.executeQuery();
+
+		// 検索結果の取得
+				
+				if (rs.next()) {
+					employeeInfo = new EmployeeInfo(rowMapping2(rs));
+					employeeInfo.setEmployee(rs.getString("name"));
+					employeeInfo.setId(rs.getInt("e.id"));
+					
+				}
+		
+		
+
+		// 見つからなかった
+		this.closeStatement();
+		return employeeInfo;
+	}
 
 	@Override
 	protected String getTableName() {
@@ -56,6 +101,13 @@ public class EmployeeDao extends BaseDao<Employee> {
 		emp.setPassword(rs.getString("password"));
 		emp.setNmEmployee(rs.getString("name"));
 		return emp;
+	}
+	protected TodoListInfo rowMapping2(ResultSet rs) throws SQLException {
+		TodoListInfo todo = new TodoListInfo();
+		todo.setIdToDo(rs.getInt("t.id"));
+		todo.setTodo(rs.getString("todo"));
+		todo.setEmployeeList_id(rs.getInt("employeeList_id"));
+		return todo;
 	}
 
 	@Override
