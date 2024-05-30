@@ -97,7 +97,7 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 		// 検索結果の取得
 		List<EmployeeInfo> todoList = new ArrayList<>();
 		while (rs.next()) {
-			EmployeeInfo todoInfo = new EmployeeInfo(rowMapping(rs));
+			EmployeeInfo todoInfo = new EmployeeInfo(rowMapping2(rs));
 			todoInfo.setEmployee(rs.getString("name"));
 			todoInfo.setId(rs.getInt("e.id"));
 			todoList.add(todoInfo);
@@ -150,6 +150,13 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 
 	@Override
 	protected TodoListInfo rowMapping(ResultSet rs) throws SQLException {
+		TodoListInfo todo = new TodoListInfo();
+		todo.setIdToDo(rs.getInt("id"));
+		todo.setTodo(rs.getString("todo"));
+		todo.setEmployeeList_id(rs.getInt("employeeList_id"));
+		return todo;
+	}
+	protected TodoListInfo rowMapping2(ResultSet rs) throws SQLException {
 		TodoListInfo todo = new TodoListInfo();
 		todo.setIdToDo(rs.getInt("t.id"));
 		todo.setTodo(rs.getString("todo"));

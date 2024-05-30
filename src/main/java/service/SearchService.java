@@ -71,11 +71,11 @@ public class SearchService extends BaseService {
 	 * @return
 	 * @throws Exception
 	 */
-	public TodoListInfo searchTodoListByPkey(Integer idTodo) throws Exception {
-		TodoDao dao = new TodoDao(this.con);
-		TodoListInfo todoList = null;
+	public EmployeeInfo searchTodoListByPkey(int idTodo) throws Exception {
+		EmployeeDao dao = new EmployeeDao(this.con);
+		EmployeeInfo todoList = null;
 		try {
-			todoList = dao.findByPramaryKey(idTodo);
+			todoList = dao.findEmployeeByPramaryKey(idTodo);
 		} finally {
 			DbUtil.closeConnection(this.con);
 		}

@@ -60,17 +60,17 @@ public class UpdateService extends BaseService {
 	}
 
 	/**
-	 * 社員情報の物理削除を行う
-	 * @param empId
+	 * todoの物理削除を行う
+	 * @param idTodo
 	 * @return
 	 * @throws Exception
 	 */
-	public int deleteEmployee(Integer empId) throws Exception {
+	public int deleteTodo(Integer idTodo) throws Exception {
 		TodoDao dao = new TodoDao(this.con);
 		int deleteCount = -1;
 
 		try {
-			deleteCount = dao.deleteByPrimaryKey(empId);
+			deleteCount = dao.deleteByPrimaryKey(idTodo);
 			this.con.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
