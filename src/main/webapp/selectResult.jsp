@@ -1,3 +1,10 @@
+<%@ page import = "entity.EmployeeInfo" %>
+<%@ page import = "entity.TodoListInfo" %>
+
+<%@ page import="java.util.ArrayList" %>
+<%ArrayList<EmployeeInfo> todoList = (ArrayList<EmployeeInfo>)request.getAttribute("empInfoList");%>
+
+
 <title>検索結果表示</title>
 </head>
 
@@ -13,14 +20,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${ empInfoList }" var="empInfo">
+			
+			
+			<% for(EmployeeInfo emp : todoList){ %>
 				<tr>
-					<td><c:out value="${ empInfo.employee.idEmployee }" /></td>
-					<td><c:out value="${ empInfo.employee.nmEmployee }" /></td>
-					<td><c:out value="${ empInfo.employee.nmEmployee }" /></td>
-					<td><c:out value="${ empInfo.employee.nmEmployee }" /></td>
+					<td><%=emp.getId() %></td>
+					<td><%=emp.getEmployee() %></td>
+					<td><%=emp.getTodo().getIdToDo()  %></td>
+					<td><%=emp.getTodo().getTodo() %></td>
 				</tr>
-			</c:forEach>
+			<% } %>
+			
+			
 		</tbody>
 	</table>
 	<hr>

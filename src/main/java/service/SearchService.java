@@ -6,6 +6,7 @@ import java.util.Map;
 
 import dao.EmployeeDao;
 import dao.TodoDao;
+import entity.EmployeeInfo;
 import entity.TodoListInfo;
 import service.BaseService.BaseService;
 import util.DbUtil;
@@ -25,8 +26,8 @@ public class SearchService extends BaseService {
 	}
 
 	/**
-	 * メールアドレス、パスワードでログイン判定を行う
-	 * @param mail
+	 * idアドレス、パスワードでログイン判定を行う
+	 * @param id
 	 * @param pass
 	 * @return
 	 * @throws Exception
@@ -47,21 +48,21 @@ public class SearchService extends BaseService {
 	
 
 	/**
-	 * 社員検索を行う
+	 * 検索を行う
 	 * @param form
 	 * @return
 	 */
-	public List<TodoListInfo> searchTodoListInfo(TodoListInfo todo) throws Exception {
+	public List<EmployeeInfo> searchTodoInfo(TodoListInfo todo) throws Exception {
 		TodoDao dao = new TodoDao(this.con);
-		List<TodoListInfo> todoInfoList = null;
+		List<EmployeeInfo> todoList = null;
 		try {
-			todoInfoList = dao.findByParam(todo);
-			if (empInfoList.size() == 0 || empInfoList == null) {
+			todoList = dao.findByParam(todo);
+			if (todoList.size() == 0 || todoList == null) {
 			}
 		} finally {
 			DbUtil.closeConnection(this.con);
 		}
-		return empInfoList;
+		return todoList;
 	}
 
 	/**

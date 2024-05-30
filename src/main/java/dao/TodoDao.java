@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.base.BaseDao;
+import entity.EmployeeInfo;
 import entity.TodoListInfo;
 import util.Util;
 
@@ -51,7 +52,7 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 	 * @param emp 検索条件
 	 * @return 検索結果
 	 */
-	public List<TodoListInfo> findByParam(TodoListInfo todo) throws SQLException {
+	public List<EmployeeInfo> findByParam(TodoListInfo todo) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 
 		// SQLの生成
@@ -63,39 +64,27 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 		sql.append("     ,t.todo");
 		sql.append("     ,t.employeeList_id");
 		sql.append(" FROM");
-		sql.append("     workingList w INNER JOIN todoList t");
-		//sql.append("         ON e.id_department = d.id_department");
+		sql.append("     employeeList e LEFT JOIN todoList t");
+		sql.append("         ON e.id = t.employeeList_id");
 
 		String keyword = " WHERE ";
 		List<Object> paramList = new ArrayList<>();
 
-		if (emp.getIdEmployee() != null) {
-			sql.append(keyword + " e.id_employee = ?");
-			paramList.add(emp.getIdEmployee());
+		if (todo.getIdToDo() != null) {
+			sql.append(keyword + " t.id = ?");
+			paramList.add(todo.getIdToDo());
 			keyword = " AND ";
 		}
 
-		if (!(Util.isStringEmpty(emp.getNmEmployee()))) {
-			sql.append(keyword + " e.nm_employee LIKE ?");
-			paramList.add("%" + emp.getNmEmployee() + "%");
+		if (!(Util.isStringEmpty(todo.getTodo()))) {
+			sql.append(keyword + " t.todo LIKE ?");
+			paramList.add("%" + todo.getTodo() + "%");
 			keyword = " AND ";
 		}
 
-		if (!(Util.isStringEmpty(emp.getKnEmployee()))) {
-			sql.append(keyword + " e.kn_employee LIKE ?");
-			paramList.add("%" + emp.getKnEmployee() + "%");
-			keyword = " AND ";
-		}
-
-		if (!(Util.isStringEmpty(emp.getMailAddress()))) {
-			sql.append(keyword + " e.mail_address LIKE ?");
-			paramList.add("%" + emp.getMailAddress() + "%");
-			keyword = " AND ";
-		}
-
-		if (emp.getIdDepartment() != null) {
-			sql.append(keyword + " e.id_department = ?");
-			paramList.add(emp.getIdDepartment());
+		if (todo.getEmployeeList_id() != null) {
+			sql.append(keyword + " e.id = ?");
+			paramList.add(todo.getEmployeeList_id());
 			keyword = " AND ";
 		}
 
@@ -106,16 +95,17 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 		ResultSet rs = stmt.executeQuery();
 
 		// 検索結果の取得
-		List<EmployeeInfo> empList = new ArrayList<>();
+		List<EmployeeInfo> todoList = new ArrayList<>();
 		while (rs.next()) {
-			EmployeeInfo empInfo = new EmployeeInfo(rowMapping(rs));
-			empInfo.setNmDepartment(rs.getString("nm_department"));
-			empList.add(empInfo);
+			EmployeeInfo todoInfo = new EmployeeInfo(rowMapping(rs));
+			todoInfo.setEmployee(rs.getString("name"));
+			todoInfo.setId(rs.getInt("e.id"));
+			todoList.add(todoInfo);
 		}
 
 		// 見つからなかった
 		this.closeStatement();
-		return empList;
+		return todoList;
 	}
 	
 	/**
@@ -161,7 +151,7 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 	@Override
 	protected TodoListInfo rowMapping(ResultSet rs) throws SQLException {
 		TodoListInfo todo = new TodoListInfo();
-		todo.setIdToDo(rs.getInt("id"));
+		todo.setIdToDo(rs.getInt("t.id"));
 		todo.setTodo(rs.getString("todo"));
 		todo.setEmployeeList_id(rs.getInt("employeeList_id"));
 		return todo;
