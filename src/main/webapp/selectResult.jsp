@@ -32,13 +32,14 @@
 						<td><%=emp.getTodo().getIdToDo()  %></td>
 						<td><%=emp.getTodo().getTodo() %></td>
 					</tr>
-				<% } %>
-				
-				
-			</tbody>
-		</table>
-		<hr>
-		<a href="select.jsp">検索条件入力に戻る</a>　|　<a href="menu.jsp">メニューに戻る</a>
-	</div>
-</body>
-</html>
+					<% } %>
+					
+					
+				</tbody>
+			</table>
+			<hr>
+			<a href="select.jsp">検索条件入力に戻る</a>　|　<a href="menu.jsp">メニューに戻る</a>
+		</div>
+		<div class="element fuwafuwa01">検索結果です！</div>
+	</body>
+	</html>
