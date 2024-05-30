@@ -20,12 +20,12 @@ body {
 }
 
 h1 {
-     display: block;
-     margin: auto;
-     padding: 20px;
-     font-size: 40px;
-     color: dimgray;
-     text-align: center;
+    display: block;
+    margin: auto;
+    padding: 20px;
+    font-size: 40px;
+    color: dimgray;
+    text-align: center;
 }
 
 .loginInfo{
@@ -45,12 +45,12 @@ h1 {
     transition: all .3s;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
-    font-size: 30px;
+    font-size: 25px;
     outline: none;
     background-color: #acacac;
-    margin-left: 460px;
+    margin: auto;
     margin-bottom: 20px;
-    padding-left: 60px;
+    padding-left: 75px;
 }
 
 .aaa :focus {
