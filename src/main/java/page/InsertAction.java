@@ -18,12 +18,15 @@ public class InsertAction extends BaseServlet {
     protected String doAction() throws Exception {
         String[] pageParam = super.getInputParameter(
                 "idTodo",   // 0
-                "todo"      // 1
+                "employeeList_id", //1
+                "todo"      // 2
         );
 
         TodoListInfo td = new TodoListInfo();
-        td.setIdToDo(Integer.parseInt(pageParam[0]));
-        td.setTodo(pageParam[1]);
+        
+        td.setEmployeeList_id(Integer.parseInt(pageParam[1])) ;
+        td.setTodo(pageParam[2]);
+        
         
         UpdateService service = new UpdateService();
         service.registTodoList(td, UPDATE_MODE.INSERT);

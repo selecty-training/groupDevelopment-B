@@ -19,6 +19,12 @@
 				</td>
 			</tr>
 			<tr>
+				<th class="header">社員ID</th>
+				<td>
+					<input type="text" name="employeeList_id" readonly="readonly" class="readOnly" value="${ param.employeeList_id }" />
+				</td>
+			</tr>
+			<tr>
 				<th class="header">TODOの内容</th>
 				<td>
 					<input type="text" name="todo" readonly="readonly" class="readOnly" value="${ param.todo }" />

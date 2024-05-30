@@ -24,7 +24,8 @@ public class InputCheckAction extends BaseServlet {
 	protected String doAction() throws Exception {
 		String[] pageParam = super.getInputParameter(
 				 "idTodo"    // 0 idTodoは自動で設定されるようにしたい！！！！
-				,"todo"		 // 1
+				,"employeeList_id"//1
+				,"todo"		 // 2
 			);
 		
 		

@@ -25,6 +25,12 @@
 				</td>
 			</tr>
 			<tr>
+				<th class="header">社員ID</th>
+				<td>
+					<input type="text" name="employeeList_id" placeholder="社員ID" class="required" value="${ param.employeeList_id }" />
+				</td>
+			</tr>
+			<tr>
 				<th class="header">TODOの内容</th>
 				<td>
 					<input type="text" name="todo" placeholder="TODOの内容" required="required" maxlength="50" value="${ param.todo }" />
