@@ -23,9 +23,8 @@ public class InputCheckAction extends BaseServlet {
 	@Override
 	protected String doAction() throws Exception {
 		String[] pageParam = super.getInputParameter(
-				 "empId"    // 0 IDは自動で設定される
-				,"empNm"	// 1
-				,"pass"		// 2
+				 "idTodo"    // 0 idTodoは自動で設定されるようにしたい！！！！
+				,"todo"		 // 1
 			);
 		
 		

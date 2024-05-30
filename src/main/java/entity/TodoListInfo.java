@@ -6,7 +6,7 @@ public class TodoListInfo implements BaseEntity{
 	public static final String TITLE_NM = "ToDo";
 
 	/** リストID（No.） */
-	private  Integer idToDo;
+	private  Integer idTodo;
 	/** ToDo内容 */
 	private String todo;
 	/** 社員ID */
@@ -17,14 +17,14 @@ public class TodoListInfo implements BaseEntity{
 	 * @return リストID（No.）
 	 */
 	public Integer getIdToDo() {
-		return idToDo;
+		return idTodo;
 	}
 	/**
 	 * リストID（No.）を設定します
 	 * @param リストID（No.）
 	 */
 	public void setIdToDo(Integer idToDo) {
-		this.idToDo = idToDo;
+		this.idTodo = idToDo;
 	}
 	/**
 	 * ToDo内容を取得します
