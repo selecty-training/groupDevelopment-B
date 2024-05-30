@@ -4,44 +4,7 @@
     box-sizing: border-box;
 }
 
-.element {
-    position: relative;
-    display: inline-block;
-    margin: 1.5em 0;
-    padding: 20px 50px;
-    min-width: 120px;
-    max-width: 100%;
-    color: white;
-    font-size: 16px;
-    background: #5d7699;
-    margin-left: 650px;
-    margin-top: 30px
-}
 
-.element:before {
-    content: "";
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    margin-left: -15px;
-    border: 15px solid transparent;
-    border-bottom: 15px solid #073563;
-}
-
-
-
-.fuwafuwa01 {
-    animation: fuwafuwa01 2s infinite ease-in-out;
-}
-
-@keyframes fuwafuwa01 {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(25px);
-    }
-}
 
 body {
     height: 100vh;
