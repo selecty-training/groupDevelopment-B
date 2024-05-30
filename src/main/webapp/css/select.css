@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+body {
+     background-color: #fff; 
+     background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+     linear-gradient(#eee .1em, transparent .1em);
+     background-size: 100% 1.2em;
+}
+
+body {
+    background-attachment: fixed;
+}
+
+h1 {
+     display: block;
+     margin: auto;
+     padding: 20px;
+     font-size: 40px;
+     color: dimgray;
+     text-align: center;
+}
+
+.loginInfo {
+    font-size: 20px;
+}
+
+.aaa {
+    margin-top: 20px;
+    font-family: cursive;
+    border: 1px solid #acacac;
+    color: #fff;
+    opacity: .7;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    font-size: 30px;
+    outline: none;
+    background-color: #acacac;
+    margin-left: 445px;
+    margin-bottom: 20px;
+    padding-left: 100px;
+}
+
+.aaa :focus {
+    width: 500px;
+    outline: none;
+}
+
+.btnArea input{
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.a{
+    font-size: medium;
+    padding-right: 80px;
+}
