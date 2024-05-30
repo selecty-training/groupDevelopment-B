@@ -23,7 +23,6 @@ public class InsertAction extends BaseServlet {
         );
 
         TodoListInfo td = new TodoListInfo();
-        
         td.setEmployeeList_id(Integer.parseInt(pageParam[1])) ;
         td.setTodo(pageParam[2]);
         

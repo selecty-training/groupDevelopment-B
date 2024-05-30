@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ page import = "entity.EmployeeInfo" %>
+<%@ page import = "entity.TodoListInfo" %>
+
+<%@ page import="java.util.ArrayList" %>
+<%ArrayList<EmployeeInfo> todoList = (ArrayList<EmployeeInfo>)request.getAttribute("empInfoList");%>
 <!DOCTYPE html>
 <html>
 	<link rel="stylesheet" href="css/menu.css">
@@ -13,8 +18,33 @@
 
 	<div class="bg_pattern Paper_v2"></div>
 	<div class="section">
+	
+	<h1>TODO一覧表<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
+	<table><!-- ここでTODO全件表示を載せて、TODO一覧表としたい -->
+		<thead>
+			<tr>
+				<th style="width: 60px;">社員ID</th>
+				<th style="width: 100px;">社員名</th>
+				<th style="width: 100px;">TODOリストID</th>
+				<th style="width: 100px;">TODOの内容</th>
+			</tr>
+		</thead>
+			<tbody>
+			
+			<% for(EmployeeInfo emp : todoList){ %>
+				<tr>
+					<td><%=emp.getId() %></td>
+					<td><%=emp.getEmployee() %></td>
+					<td><%=emp.getTodo().getIdToDo()  %></td>
+					<td><%=emp.getTodo().getTodo() %></td>
+				</tr>
+			<% } %>
+			
+			</tbody>
+	</table>
+		
 
-	<h1>メインメニュー　　　<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
+	<h1>メインメニュー</h1>
 	<ul class="ul">
 		<!-- 検索列 -->
 		<li class="icon_s">
@@ -36,6 +66,7 @@
 			<a href="delete.jsp">TODO削除</a>	
 		</li>
 	</ul>
+	<a href="login.jsp">ログイン画面に戻る</a>
 </body>
 
 </html>
