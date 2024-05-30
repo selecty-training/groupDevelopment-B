@@ -20,7 +20,12 @@
 	<div class="section">
 	
 	<h1>TODO一覧表<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
+	
+	<form action="hyouji" method="post">
+		<input type="submit" value="全件表示"> 
+	</form>
 	<table><!-- ここでTODO全件表示を載せて、TODO一覧表としたい -->
+			<% if(todoList != null){ %>
 		<thead>
 			<tr>
 				<th style="width: 60px;">社員ID</th>
@@ -30,7 +35,6 @@
 			</tr>
 		</thead>
 			<tbody>
-			
 			<% for(EmployeeInfo emp : todoList){ %>
 				<tr>
 					<td><%=emp.getId() %></td>
@@ -39,7 +43,7 @@
 					<td><%=emp.getTodo().getTodo() %></td>
 				</tr>
 			<% } %>
-			
+			<% } %>
 			</tbody>
 	</table>
 		

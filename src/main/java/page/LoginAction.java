@@ -1,12 +1,9 @@
 package page;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.annotation.WebServlet;
 
-import entity.EmployeeInfo;
-import entity.TodoListInfo;
 import page.base.BaseServlet;
 import service.SearchService;
 
@@ -48,13 +45,13 @@ public class LoginAction extends BaseServlet {
 		if (loginData == null || loginData.get("EMP") == null) {
 			throw new Exception("IDまたはパスワードが間違っています");
 		}
-			TodoListInfo todo = new TodoListInfo();
-			List<EmployeeInfo> todoInfoList = service.searchTodoInfo(todo);
+//			TodoListInfo todo = new TodoListInfo();
+//			List<EmployeeInfo> todoInfoList = service.searchTodoInfo(todo);
 
 		// 取得した情報をセッションへ格納
 		super.session.setAttribute("LOGIN_EMP", loginData.get("EMP"));
 		super.session.setAttribute("DEP_LIST", loginData.get("DEP_LIST"));
-		super.request.setAttribute("empInfoList", todoInfoList);
+//		super.request.setAttribute("empInfoList", todoInfoList);
 		return "menu";
 	}
 }
