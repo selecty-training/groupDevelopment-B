@@ -5,8 +5,8 @@
 }
 
 .zen input{
-    padding: 10px;
-    background-color: rgb(136, 235, 138, 0.8);
+    padding: 10px 40px;
+    background-color: rgba(121, 211, 122, 0.8);
     border: none;
     border-radius: 5px;
     color: #4b3ce5;
