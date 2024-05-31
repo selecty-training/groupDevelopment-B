@@ -23,13 +23,13 @@
 				<tr>
 					<th class="header">社員ID</th>
 					<td>
-						<input type="text" name="employeeList_id" placeholder="TODOのID" maxlength="50" value="${ param.employeeList_id }" required="required"/>
+						<input type="text" name="employeeList_id" placeholder="社員のID" maxlength="50" value="${ employeeList_id }" required="required"/>
 					</td>
 				</tr>
 				<tr>
 					<th class="header">TODOの内容</th>
 					<td>
-						<input type="text" name="todo" placeholder="TODOの内容" maxlength="50" value="${ param.todo }" required="required"/>
+						<input type="text" name="todo" placeholder="TODOの内容" maxlength="50" class="readOnly" value="${ todo }" required="required"/>
 					</td>
 				</tr>
 				
