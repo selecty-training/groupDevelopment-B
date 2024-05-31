@@ -8,18 +8,6 @@
 		<form action="delete" method="post" >
 			<table>
 				<tr>
-					<th class="header">社員ID</th>
-					<td>
-						<input type="text" name="employeeList_id" readonly="readonly" class="readOnly" value="${ employeeList_id }" />
-					</td>
-				</tr>
-				<tr>
-					<th class="header">社員名</th>
-					<td>
-						<input type="text" name="empNm" readonly="readonly" class="readOnly" value="${ empNm }"/>
-					</td>
-				</tr>
-				<tr>
 					<th class="header">idTodo</th>
 					<td>
 						<input type="text" name="idTodo" readonly="readonly" class="readOnly" value="${ idTodo }" />
@@ -29,6 +17,18 @@
 					<th class="header">TODOの内容</th>
 					<td>
 						<input type="text" name="todo" readonly="readonly" class="readOnly" value="${ todo }" />
+					</td>
+				</tr>
+				<tr>
+					<th class="header">社員ID</th>
+					<td>
+						<input type="text" name="employeeList_id" readonly="readonly" class="readOnly" value="${ employeeList_id }" />
+					</td>
+				</tr>
+				<tr>
+					<th class="header">社員名</th>
+					<td>
+						<input type="text" name="empNm" readonly="readonly" class="readOnly" value="${ empNm }"/>
 					</td>
 				</tr>
 				

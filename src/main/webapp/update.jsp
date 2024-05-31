@@ -11,15 +11,15 @@
 
 <body>
 	<h1>TODO情報更新　　　<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
-	<form action="targetSearch" method="post">
-	    <c:if test="${errMsg != null}">
-            <div class="msgBox error">
-                <c:forEach items="${ errMsg }" var="errList">
-                    <c:out value="${errList}" />
-                </c:forEach>
-            </div>
-        </c:if>
-        <div class="aaa">
+ 	<div class="aaa">
+		<form action="targetSearch" method="post">
+	    	<c:if test="${errMsg != null}">
+            	<div class="msgBox error">
+                	<c:forEach items="${ errMsg }" var="errList">
+                    	<c:out value="${errList}" />
+                	</c:forEach>
+            	</div>
+        	</c:if>
             <table>
                 <tr>
                     <th class="header">TODOのID</th>
@@ -37,6 +37,6 @@
             </table>
         </form>
         <a href="menu.jsp" >メニューに戻る</a>
-        </div>
+    </div>
 </body>
 </html>
