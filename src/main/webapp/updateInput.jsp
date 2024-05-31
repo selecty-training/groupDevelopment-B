@@ -17,13 +17,13 @@
 				<tr>
 					<th class="header">TODOのID</th>
 					<td>
-						<input type="text" name="idTodo" readonly="readonly" class="readOnly" value="${ param.idTodo }" required="required"/>
+						<input type="text" name="idTodo" readonly="readonly" class="readOnly" value="${ idTodo }" required="required"/>
 					</td>
 				</tr>
 				<tr>
 					<th class="header">社員ID</th>
 					<td>
-						<input type="text" name="employeeList_id" placeholder="社員のID" maxlength="50" value="${ param.employeeList_id }" required="required"/>
+						<input type="text" name="employeeList_id" placeholder="社員のID" maxlength="50" value="${ employeeList_id }" required="required"/>
 					</td>
 				</tr>
 				<tr>
