@@ -25,9 +25,9 @@
 			<input type="submit" value="全件表示"> 
 		</form>
 	</div>
+	<% if(todoList != null){ %>
 	<div class="ugoke">
 		<table><!-- ここでTODO全件表示を載せて、TODO一覧表としたい -->
-				<% if(todoList != null){ %>
 			<thead>
 				<tr>
 					<th style="width: 300px;">TODOリストID</th>
@@ -45,10 +45,10 @@
 						<td><%=emp.getEmployee() %></td>
 					</tr>
 					<% } %>
-					<% } %>
 				</tbody>
 			</table>
 		</div>
+		<% } %>
 		
 		
 	<div class="box">
