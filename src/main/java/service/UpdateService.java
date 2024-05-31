@@ -48,10 +48,10 @@ public class UpdateService extends BaseService {
 				
 				count = dao.updateByPrimaryKey(paramList, todo.getIdToDo());
 			}
-			this.con.commit();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			this.con.rollback();
+			
 			throw new Exception("登録できませんでした:" + e.getMessage());
 		} finally {
 			DbUtil.closeConnection(this.con);
