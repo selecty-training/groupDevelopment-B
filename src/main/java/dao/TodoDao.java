@@ -55,19 +55,31 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 	public List<EmployeeInfo> findByParam(TodoListInfo todo) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 
-		// SQLの生成
+//		// SQLの生成
+//		sql.append(" SELECT");
+//		sql.append("      e.id");
+//		sql.append("     ,e.password");
+//		sql.append("     ,e.name");
+//		sql.append("     ,t.id");
+//		sql.append("     ,t.todo");
+//		sql.append("     ,t.employeeList_id");
+//		sql.append(" FROM");
+//		sql.append("     employeeList e LEFT JOIN todoList t");
+//		sql.append("         ON e.id = t.employeeList_id");
+//		sql.append(" ORDER BY");
+//		sql.append(" t.id");
+		
 		sql.append(" SELECT");
-		sql.append("      e.id");
-		sql.append("     ,e.password");
-		sql.append("     ,e.name");
-		sql.append("     ,t.id");
+		sql.append("      t.id");
 		sql.append("     ,t.todo");
 		sql.append("     ,t.employeeList_id");
+		sql.append("     ,e.id");
+		sql.append("     ,e.password");
+		sql.append("     ,e.name");
 		sql.append(" FROM");
-		sql.append("     employeeList e LEFT JOIN todoList t");
-		sql.append("         ON e.id = t.employeeList_id");
-		sql.append(" ORDER BY");
-		sql.append(" t.id");
+		sql.append("     todoList t INNER JOIN employeeList e");
+		sql.append("         ON t.employeeList_id = e.id");
+		
 
 		String keyword = " WHERE ";
 		List<Object> paramList = new ArrayList<>();
