@@ -4,7 +4,17 @@
     box-sizing: border-box;
 }
 
-
+.zen input{
+    padding: 10px;
+    background-color: rgb(136, 235, 138, 0.8);
+    border: none;
+    border-radius: 5px;
+    color: #4b3ce5;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
 .bg_pattern {
     position: fixed;
@@ -125,6 +135,9 @@
     }
 }
 
+.box a{
+    margin-bottom: 20px;
+}
 
 h1 {
     position: relative;
@@ -132,7 +145,7 @@ h1 {
     border-bottom: 3px solid #000;
     border-left: 3px solid #000;
     border-radius: 0 0 0 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 h1:before {
@@ -178,7 +191,7 @@ body {
 }
 
 .ugoke {
-    padding: 20px 100px;
+    padding: 20px 50px;
     position: relative;
     display: inline-block;
     margin: 1.5em 0;
