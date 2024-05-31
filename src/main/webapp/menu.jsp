@@ -20,32 +20,33 @@
 	<div class="section">
 	
 	<h1>TODO一覧表<span class="loginInfo">ログイン者名：${ sessionScope.LOGIN_EMP.nmEmployee }</span></h1>
-	
 	<form action="hyouji" method="post">
 		<input type="submit" value="全件表示"> 
 	</form>
-	<table><!-- ここでTODO全件表示を載せて、TODO一覧表としたい -->
-			<% if(todoList != null){ %>
-		<thead>
-			<tr>
-				<th style="width: 100px;">TODOリストID</th>
-				<th style="width: 100px;">TODOの内容</th>
-				<th style="width: 60px;">社員ID</th>
-				<th style="width: 100px;">社員名</th>
-			</tr>
-		</thead>
-			<tbody>
-			<% for(EmployeeInfo emp : todoList){ %>
+	<div class="ugoke">
+		<table><!-- ここでTODO全件表示を載せて、TODO一覧表としたい -->
+				<% if(todoList != null){ %>
+			<thead>
 				<tr>
-					<td><%=emp.getTodo().getIdToDo()  %></td>
-					<td><%=emp.getTodo().getTodo() %></td>
-					<td><%=emp.getId() %></td>
-					<td><%=emp.getEmployee() %></td>
+					<th style="width: 300px;">TODOリストID</th>
+					<th style="width: 300px;">TODOの内容</th>
+					<th style="width: 180px;">社員ID</th>
+					<th style="width: 300px;">社員名</th>
 				</tr>
-			<% } %>
-			<% } %>
-			</tbody>
-	</table>
+			</thead>
+				<tbody>
+				<% for(EmployeeInfo emp : todoList){ %>
+					<tr>
+						<td><%=emp.getTodo().getIdToDo()  %></td>
+						<td><%=emp.getTodo().getTodo() %></td>
+						<td><%=emp.getId() %></td>
+						<td><%=emp.getEmployee() %></td>
+					</tr>
+				<% } %>
+				<% } %>
+				</tbody>
+		</table>
+	</div>
 		
 
 	<h1>メインメニュー</h1>

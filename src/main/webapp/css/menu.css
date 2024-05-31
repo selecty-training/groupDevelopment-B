@@ -92,7 +92,11 @@ body {
     list-style: none;
 }
 
-
+.ugoke {
+    padding: 10px 100px;
+    margin: 0px 100px;
+    width: 100%;
+}
 
 
 .icon_s a {
