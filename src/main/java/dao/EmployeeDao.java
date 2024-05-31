@@ -88,6 +88,34 @@ public class EmployeeDao extends BaseDao<Employee> {
 		this.closeStatement();
 		return employeeInfo;
 	}
+	
+	/**
+	 * 社員IDでの検索を行う
+	 * @param ID 検索するID
+	 * @return 検索結果
+	 */
+	public Employee findByID(int id) throws SQLException {
+		Employee entity = null;
+		StringBuilder sql = new StringBuilder();
+
+		// SQLの生成
+		sql.append(" SELECT * FROM " + this.getTableName());
+		sql.append(" WHERE id = ?");
+
+		// Statementの生成および条件の設定
+		this.stmt = this.con.prepareStatement(sql.toString());
+		setParameter(id);
+
+		ResultSet rs = stmt.executeQuery();
+
+		// 検索結果の取得
+		if (rs.next()) {
+			entity = rowMapping(rs);
+		}
+
+		this.closeStatement();
+		return entity;
+	}
 
 	@Override
 	protected String getTableName() {

@@ -3,6 +3,7 @@ package page;
 import javax.servlet.annotation.WebServlet;
 
 import page.base.BaseServlet;
+import service.SearchService;
 
 //import com.selecty.example.page.base.BaseServlet;
 //import com.selecty.example.service.SearchService;
@@ -29,10 +30,13 @@ public class InputCheckAction extends BaseServlet {
 			);
 		
 		
-//		SearchService service = new SearchService();
-//		if (service.checkDuplicationMail(null,pageParam[2])) {
-//			throw new Exception("入力されたメールアドレスは既に存在しています");
-//		}
+		//
+		int id = Integer.parseInt(pageParam[1]);
+		SearchService service = new SearchService();
+		if (service.checkId(id)) {
+			throw new Exception("存在しない社員IDです");
+		}
+		//
 
 		return "insertConfirm";
 	}

@@ -1,11 +1,13 @@
 package service;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import dao.EmployeeDao;
 import dao.TodoDao;
+import entity.Employee;
 import entity.EmployeeInfo;
 import entity.TodoListInfo;
 import service.BaseService.BaseService;
@@ -87,6 +89,7 @@ public class SearchService extends BaseService {
 	 * @param id
 	 * @param mail
 	 * @return
+	 * @throws SQLException 
 	 * @throws Exception
 	 */
 //	public boolean checkDuplicationMail(Integer id, String mail) throws Exception {
@@ -104,7 +107,28 @@ public class SearchService extends BaseService {
 //			DbUtil.closeConnection(this.con);
 //		}
 //		return false;
+	
+	
+	//id存在チェック
+	public boolean checkId(int id) throws SQLException {
+		EmployeeDao dao = new EmployeeDao(this.con);
+		try {
+			Employee emp = dao.findByID(id);
+			
+			if(emp == null) {
+				return true;
+			}
+		} finally {
+			DbUtil.closeConnection(this.con);
+		}
+		
+		
+		return false;
+		
 	}
+	
+	
+}
 
 
 

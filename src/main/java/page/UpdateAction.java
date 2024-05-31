@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 
 import entity.TodoListInfo;
 import page.base.BaseServlet;
+import service.SearchService;
 import service.UpdateService;
 import service.UpdateService.UPDATE_MODE;
 
@@ -47,6 +48,7 @@ public class UpdateAction extends BaseServlet {
 //		if (sService.checkDuplicationMail(Integer.parseInt(pageParam[0]), pageParam[3])) {
 //			throw new Exception("入力されたメールアドレスは既に存在しています");
 //		}
+		
 
 		UpdateService uService= new UpdateService();
 		TodoListInfo todo = new TodoListInfo();
@@ -54,6 +56,12 @@ public class UpdateAction extends BaseServlet {
 		todo.setTodo(pageParam[1]);
 		todo.setEmployeeList_id(Integer.parseInt(pageParam[2]));
 
+		int id = Integer.parseInt(pageParam[2]);
+		SearchService service = new SearchService();
+		if (service.checkId(id)) {
+			throw new Exception("存在しない社員IDです");
+		}
+		
 		uService.registTodoList(todo, UPDATE_MODE.UPDATE);
 		return "updateResult";
 	}
