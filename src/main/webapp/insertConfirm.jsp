@@ -32,6 +32,8 @@
 						<input type="text" name="todo" readonly="readonly" class="readOnly" value="${ param.todo }" />
 					</td>
 					
+				</tr>
+				<tr>
 					<td colspan="2" class="btnArea">
 						<input type="submit" value="登録" />
 					</td>

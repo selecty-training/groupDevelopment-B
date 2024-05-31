@@ -51,7 +51,7 @@ h1 {
     background-color: #acacac;
     margin: auto;
     margin-bottom: 20px;
-    padding-left: 130px;
+    padding: 0px 130px;
 }
 
 .aaa :focus {
@@ -76,4 +76,5 @@ h1 {
 
 .aaa a{
     font-size: medium;
+    text-align: center;
 }
