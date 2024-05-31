@@ -42,36 +42,59 @@
 						<td><%=emp.getId() %></td>
 						<td><%=emp.getEmployee() %></td>
 					</tr>
-				<% } %>
-				<% } %>
+					<% } %>
+					<% } %>
 				</tbody>
-		</table>
-	</div>
+			</table>
+		</div>
 		
+		
+	<div class="box">
+		<h1>メインメニュー</h1>
+		<ul class="ul">
+			<!-- 検索列 -->
+			<li class="icon_s">
+				<a href="select.jsp">TODO検索</a>	
+			</li>
 
-	<h1>メインメニュー</h1>
-	<ul class="ul">
-		<!-- 検索列 -->
-		<li class="icon_s">
-			<a href="select.jsp">TODO検索</a>	
-		</li>
+			<!-- 登録列 -->
+			<li class="icon_i">
+				<a href="insert.jsp">TODO登録</a>	
+			</li>
 
-		<!-- 登録列 -->
-		<li class="icon_i">
-			<a href="insert.jsp">TODO登録</a>	
-		</li>
+			<!-- 更新列 -->
+			<li class="icon_u">
+				<a href="update.jsp">TODO更新</a>	
+			</li>
 
-		<!-- 更新列 -->
-		<li class="icon_u">
-			<a href="update.jsp">TODO更新</a>	
-		</li>
+			<!-- 削除列 -->
+			<li class="icon_d">
+				<a href="delete.jsp">TODO削除</a>	
+			</li>
+		</ul>
+		<a href="login.jsp">ログイン画面に戻る</a>
 
-		<!-- 削除列 -->
-		<li class="icon_d">
-			<a href="delete.jsp">TODO削除</a>	
-		</li>
-	</ul>
-	<a href="login.jsp">ログイン画面に戻る</a>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+	</div>
 </body>
 
 </html>
