@@ -66,6 +66,8 @@ public class TodoDao  extends BaseDao<TodoListInfo> {
 		sql.append(" FROM");
 		sql.append("     employeeList e LEFT JOIN todoList t");
 		sql.append("         ON e.id = t.employeeList_id");
+		sql.append(" ORDER BY");
+		sql.append(" t.id");
 
 		String keyword = " WHERE ";
 		List<Object> paramList = new ArrayList<>();

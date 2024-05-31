@@ -28,19 +28,19 @@
 			<% if(todoList != null){ %>
 		<thead>
 			<tr>
-				<th style="width: 60px;">社員ID</th>
-				<th style="width: 100px;">社員名</th>
 				<th style="width: 100px;">TODOリストID</th>
 				<th style="width: 100px;">TODOの内容</th>
+				<th style="width: 60px;">社員ID</th>
+				<th style="width: 100px;">社員名</th>
 			</tr>
 		</thead>
 			<tbody>
 			<% for(EmployeeInfo emp : todoList){ %>
 				<tr>
-					<td><%=emp.getId() %></td>
-					<td><%=emp.getEmployee() %></td>
 					<td><%=emp.getTodo().getIdToDo()  %></td>
 					<td><%=emp.getTodo().getTodo() %></td>
+					<td><%=emp.getId() %></td>
+					<td><%=emp.getEmployee() %></td>
 				</tr>
 			<% } %>
 			<% } %>
